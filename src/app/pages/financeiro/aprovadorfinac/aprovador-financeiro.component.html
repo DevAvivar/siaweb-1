@@ -1,0 +1,89 @@
+<app-my-header></app-my-header>
+<div class="content-wrapper">
+    <app-my-toolbar [nameContent]="nameContent"></app-my-toolbar>
+    <div class="container-fluid">
+        <!-- adiciona os elementos na pagina -->
+        <div>
+
+            <div class="row">
+
+                <fieldset class="border p-1 col-12">
+                    <legend class="w-auto">Pesquisar Por- F5</legend>
+                     <div class="row">
+
+                        <div class="col-2 col-md-2 col-lg-2">
+                            <mat-checkbox color="primary"  [checked]="statusPending" (change)="getValueStatusPending($event.checked)">
+                                Código</mat-checkbox>
+                        </div><br>
+                        <div class="col-2 col-md-2 col-lg-2">
+                            <mat-checkbox color="primary"  (change)="getValueStatusProgress($event.checked)">
+                                Nome</mat-checkbox>
+                        </div>
+                     </div>
+
+                    </fieldset>
+
+                    <fieldset class="border p-2 col-6">
+                      <div class="row">
+                         <div class="col-5 col-.sm-5 .col-xl-5">
+                          <legend class="w-auto">Localizar Por- F3</legend>
+                          <div class="form-group">
+                              <mat-form-field appearance="fill">
+                                 <input #nameSector class="text-uppercase" matInput >
+                              </mat-form-field>
+                          </div>
+                      </div>
+
+                              <div class="col-4 .col-sm-4 .col-xl-4 d-inline-flex">
+                              <button mat-raised-button color="primary" (click)="listSac()">Pesquisar -F5</button>
+                          </div>
+                      </div>
+                  </fieldset>
+
+            </div><br>
+
+
+
+
+
+
+
+
+
+        <!-- Tabela-->
+        <app-my-table
+        [displayedColumns]="displayedColumns"
+        [dataSource]="dataSource"
+        [displayHeaderColumns]="displayHeaderColumns"
+        [totalElements]="totalElements"
+        [loading]="loading"
+        [showButtons]="true"
+        [showButtonsConfirm]="false"
+        [showinputSearch]="false"
+        (getSort)=getMatSort($event)
+        (getPaginator)=getMatPaginator($event)
+        (searchAll)="getSearchAll($event)"
+        (routerEdit)="getRouterEdit($event)"
+        (routerDelete)="getRouterDelete($event)"
+        (routerCreate)="getRouterCreate($event)">
+        </app-my-table>
+
+        <!-- botoes de  interação -->
+        <div class="row ">
+          <div class="col-3 col-md-4 col-lg-4 d-inline-flex ">
+              <button mat-raised-button color="primary" type="submit" >Novo</button>
+              <button mat-raised-button color="primary" >Alterar</button>
+              <button mat-raised-button color="primary" >Remover</button>
+              <button mat-raised-button color="primary"  >Limpar</button>
+              <button mat-raised-button color="primary" >Vizualizar</button>
+              <button mat-raised-button color="primary" (click)="back()">Voltar</button>
+          </div>
+        </div><br>
+
+    </div> <!-- ./container-fluid -->
+
+
+
+</div>
+</div>
+<app-my-footer></app-my-footer>

@@ -1,0 +1,194 @@
+<app-my-header></app-my-header>
+<div class="content-wrapper">
+    <app-my-toolbar [nameContent]="nameContent"></app-my-toolbar>
+    <div class="container-fluid">
+        <!-- adiciona os elementos na pagina -->
+        <form>
+
+            <div class="row">
+                <fieldset class="border p-2 col-6">
+                    <legend class="w-auto">Data da Retirada</legend>
+                    <div class="row">
+
+                      <div class="col-6 col-md-2 col-lg-2">
+                        <div class="form-group">
+                           <mat-form-field appearance="fill">
+                               <mat-label>Hora Retirada</mat-label>
+                               <input matInput type="time" [value]="closingDateTime" >
+                             </mat-form-field>
+                        </div>
+                    </div>
+
+                        <div class="col-6 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Data do Emprestimo</mat-label>
+                                    <input #dateinitial matInput [matDatepicker]="pickerx46">
+                                    <mat-datepicker-toggle matSuffix [for]="pickerx46"></mat-datepicker-toggle>
+                                    <mat-datepicker #pickerx46></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </fieldset>
+
+                <fieldset class="border p-2 col-6">
+                  <legend class="w-auto">Data da Devolução</legend>
+                  <div class="row">
+
+                    <div class="col-6 col-md-2 col-lg-2">
+                      <div class="form-group">
+                         <mat-form-field appearance="fill">
+                             <mat-label>Hora Devolução</mat-label>
+                             <input matInput type="time" [value]="closingDateTime"  >
+                           </mat-form-field>
+                      </div>
+                  </div>
+                      <div class="col-6 col-md-4 col-lg-4">
+                          <div class="form-group">
+                              <mat-form-field appearance="fill">
+                                  <mat-label>Data do Gasto</mat-label>
+                                  <input #dateinitial matInput [matDatepicker]="pickerx47">
+                                  <mat-datepicker-toggle matSuffix [for]="pickerx47"></mat-datepicker-toggle>
+                                  <mat-datepicker #pickerx47></mat-datepicker>
+                              </mat-form-field>
+                          </div>
+                      </div>
+
+
+                  </div>
+              </fieldset>
+
+            </div><br>
+
+
+              <fieldset class="border p-2 col-6">
+              <legend class="w-auto">Tipo de Veiculo</legend>
+              <div class="row">
+                <mat-radio-group aria-label="Select an option"  >
+                  <mat-radio-button >Automóvel  &nbsp;</mat-radio-button>
+                  <mat-radio-button >Caminhonete  &nbsp;</mat-radio-button>
+                  <mat-radio-button >Caminhão</mat-radio-button>
+                </mat-radio-group>
+
+              </div>
+              </fieldset>
+
+
+
+
+             <div class="row">
+
+              <div class="col-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Veículo </mat-label>
+                        <input #complaint class="text-uppercase" matInput (keyup)="getReasonComplaint()">
+                    </mat-form-field>
+                </div>
+              </div>
+
+            <div class="col-3 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <mat-form-field appearance="fill">
+                        <input #nameComplaint class="text-uppercase" matInput (dblclick)="openModalMotivorec()">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col-2 col-md-2 col-lg-2">
+              <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Responsável pelo Empréstimo </mat-label>
+                      <input #complaint class="text-uppercase" matInput (keyup)="getReasonComplaint()">
+                  </mat-form-field>
+              </div>
+            </div>
+
+          <div class="col-3 col-md-4 col-lg-4">
+              <div class="form-group">
+                  <mat-form-field appearance="fill">
+                      <input #nameComplaint class="text-uppercase" matInput (dblclick)="openModalMotivorec()">
+                  </mat-form-field>
+              </div>
+          </div>
+
+        </div>
+            <div class="row">
+
+                    <div class="col-4 .col-sm-2 .col-xl-2">
+                      <div class="form-group">
+                          <mat-form-field appearance="fill">
+                            <mat-label>Destino </mat-label>
+                              <input #complaint class="text-uppercase" matInput (keyup)="getReasonComplaint()">
+                          </mat-form-field>
+                      </div>
+                    </div>
+
+                  <div class="col-2 .col-sm-2 .col-xl-2">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Matricula do Solicitante </mat-label>
+                            <input #complaint class="text-uppercase" matInput (keyup)="getReasonComplaint()">
+                        </mat-form-field>
+                    </div>
+                  </div>
+
+                <div class="col-3 .col-sm-4 .col-xl-4">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                            <input #nameComplaint class="text-uppercase" matInput (dblclick)="openModalMotivorec()">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="row">
+                <div class="offset-5 col-2 .col-sm-3 .col-xl-3">
+                  <mat-checkbox color="primary"  [checked]="noReturn" (change)="getValueNoreturn($event.checked)">Inativo -F6
+                  </mat-checkbox>
+                  </div>
+                  <div class="col-3 .col-sm-4 .col-xl-4 d-inline-flex ">
+                  <button mat-raised-button color="primary" (click)="listSac()">Pesquisar</button>
+                  </div>
+                </div>
+
+            </div>
+        </form>
+
+        <!-- Tabela-->
+        <app-my-table
+        [displayedColumns]="displayedColumns"
+        [dataSource]="dataSource"
+        [displayHeaderColumns]="displayHeaderColumns"
+        [totalElements]="totalElements"
+        [loading]="loading"
+        [showButtons]="true"
+        [showButtonsConfirm]="false"
+        [showinputSearch]="false"
+        (getSort)=getMatSort($event)
+        (getPaginator)=getMatPaginator($event)
+        (searchAll)="getSearchAll($event)"
+        (routerEdit)="getRouterEdit($event)"
+        (routerDelete)="getRouterDelete($event)"
+        (routerCreate)="getRouterCreate($event)">
+        </app-my-table>
+
+<!-- botoes de  interação -->
+    <div class="row ">
+          <div class="col-4 .col-sm-4 .col-xl-4 d-inline-flex ">
+              <button mat-raised-button color="primary" type="submit" >Novo</button>
+              <button mat-raised-button color="primary" >Alterar</button>
+              <button mat-raised-button color="primary"  >Renomear</button>
+              <button mat-raised-button color="primary" >Limpar</button>
+              <button mat-raised-button color="primary" >Visualizar</button>
+              <button mat-raised-button color="primary" (click)="back()">Voltar</button>
+          </div>
+    </div><br>
+
+    </div> <!-- ./container-fluid -->
+
+
+</div>
+<app-my-footer></app-my-footer>
