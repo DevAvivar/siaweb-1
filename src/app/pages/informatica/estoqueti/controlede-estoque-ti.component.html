@@ -1,0 +1,287 @@
+<app-my-header></app-my-header>
+<div class="content-wrapper">
+    <app-my-toolbar [nameContent]="nameContent"></app-my-toolbar>
+    <div class="container-fluid">
+        <!-- adiciona os elementos na pagina -->
+        <form>
+
+            <div class="row">
+                <fieldset class="border p-2 col-5">
+                    <legend class="w-auto">Solicitação</legend>
+                    <div class="row">
+
+                        <div class="col-2 .col-sm-3 .col-xl-3">
+                            <mat-checkbox color="primary"  [checked]="statusPending" (change)="getValueStatusPending($event.checked)">
+                                Pendente</mat-checkbox>
+                        </div>
+                        <div class="col-2 .col-sm-3 .col-xl-3">
+                            <mat-checkbox color="primary" [checked]="statusProgress" (change)="getValueStatusProgress($event.checked)">
+                                Em Andamento</mat-checkbox>
+                        </div>
+                        <div class="col-2 .col-sm-3 .col-xl-3">
+                            <mat-checkbox color="primary" [checked]="statusFinished" (change)="getValueStatusFinished($event.checked)">
+                                Finalizado</mat-checkbox>
+                        </div>
+
+                        <div class="col-2 .col-sm-3 .col-xl-3">
+                          <mat-checkbox color="primary" [checked]="statusFinished" (change)="getValueStatusFinished($event.checked)">
+                              Suspenso</mat-checkbox>
+                      </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset class="border p-2 col-7">
+                    <legend class="w-auto">Classificação</legend>
+                    <div class="row">
+                        <div class="col-2 .col-sm-4 .col-xl-4">
+                            <mat-checkbox color="primary" [checked]="ckbQuality" >Solicitação de Compra</mat-checkbox>
+                        </div>
+                        <div class="col-2 .col-sm-5 .col-xl-5">
+                            <mat-checkbox color="primary" [checked]="ckbDevolution" >Em estoque
+                          </mat-checkbox>
+                        </div>
+                        <div class="col-2 .col-sm-3 .col-xl-3">
+                            <mat-checkbox color="primary" [checked]="ckbOccurrence" > Baixa de Item</mat-checkbox>
+                        </div>
+                        <div class="col-2 .col-sm-3 .col-xl-3">
+                            <mat-checkbox color="primary" [checked]="ckbOthers" >Transferencia de C.Custo
+                            </mat-checkbox>
+                        </div>
+                        <div class="col-2 .col-sm-3 .col-xl-3">
+                            <mat-checkbox color="primary" [checked]="ckbFfo" > Aguardando Fornecedor
+                            </mat-checkbox>
+                        </div>
+                        <div class="col-2 .col-sm-3 .col-xl-3">
+                            <mat-checkbox color="primary" [checked]="ckbInformative" >
+                                Em manutenção</mat-checkbox>
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+            </div><br>
+
+            <div class="row">
+              <!-- <fieldset class="border p-2 col-6">
+                <div class="row">
+                <div class="col-3 .col-sm-2 .col-xl-2">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Período</mat-label>
+                            <input #dateinitial matInput [matDatepicker]="pickerInitial">
+                            <mat-datepicker-toggle matSuffix [for]="pickerInitial"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerInitial></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="col-3 .col-sm-2 .col-xl-2">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Data Final</mat-label>
+                            <input #datefinal matInput [matDatepicker]="pickerFinal">
+                            <mat-datepicker-toggle matSuffix [for]="pickerFinal"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerFinal></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+              </div>
+              </fieldset> -->
+
+                <div class="col-2 .col-sm-2 .col-xl-2">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Código</mat-label>
+                            <input #code matInput class="text-uppercase" >
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-4 .col-sm-3 .col-xl-3">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Produto</mat-label>
+                            <input #nfe matInput class="text-uppercase" >
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-4 .col-sm-3 .col-xl-3">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Fornecedor</mat-label>
+                            <input #devolution matInput class="text-uppercase" >
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-2 .col-sm-2 .col-xl-2">
+                  <div class="form-group">
+                      <mat-form-field appearance="fill">
+                        <mat-label>Estoque Atual</mat-label>
+                          <input #erpClient class="text-uppercase" matInput (keyup)="getClientForERP()" (dblclick)="openModalClient()">
+                      </mat-form-field>
+                  </div>
+              </div>
+              <div class="col-2 .col-sm-2 .col-xl-2">
+                <div class="form-group">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Estoque Mínimo</mat-label>
+                        <input #erpClient class="text-uppercase" matInput (keyup)="getClientForERP()" (dblclick)="openModalClient()">
+                    </mat-form-field>
+                </div>
+            </div>
+
+          <div class="col-2 .col-sm-2 .col-xl-2">
+            <div class="form-group">
+                <mat-form-field appearance="fill">
+                  <mat-label>Estoque Máximo</mat-label>
+                    <input #erpClient class="text-uppercase" matInput (keyup)="getClientForERP()" (dblclick)="openModalClient()">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-2 .col-sm-2 .col-xl-2">
+          <div class="form-group">
+              <mat-form-field appearance="fill">
+                <mat-label>Dias de Estoque</mat-label>
+                  <input #erpClient class="text-uppercase" matInput (keyup)="getClientForERP()" (dblclick)="openModalClient()">
+              </mat-form-field>
+          </div>
+      </div>
+      <div class="col-4 .col-sm-5 .col-xl-5">
+        <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Especificação do Produto</mat-label>
+                <input #protocol class="text-uppercase" matInput >
+            </mat-form-field>
+        </div>
+    </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2 .col-sm-2 .col-xl-2">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Centro de Custo</mat-label>
+                            <input #erpClient class="text-uppercase" matInput (keyup)="getClientForERP()" (dblclick)="openModalClient()">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-2 .col-sm-2 .col-xl-2">
+                  <div class="form-group">
+                      <mat-form-field appearance="fill">
+                        <mat-label>Tempo de Entrega</mat-label>
+                          <input #erpClient class="text-uppercase" matInput (keyup)="getClientForERP()" (dblclick)="openModalClient()">
+                      </mat-form-field>
+                  </div>
+              </div>
+                <div class="col-2 .col-sm-2 .col-xl-2">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Preço Atual</mat-label>
+                            <input #codeClient class="text-uppercase" matInput  (keyup)="getClientForCode()"(dblclick)="openModalClient()">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="col-3 .col-sm-3 .col-xl-3">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Nº Patrimônio</mat-label>
+                            <input #nameClient class="text-uppercase" matInput readonly (dblclick)="openModalClient()">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="row">
+
+              <div class="col-2 .col-sm-2 .col-xl-2">
+                <div class="form-group">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Ultima Compra</mat-label>
+                      <input #product class="text-uppercase" matInput (keyup)="getProduct()"(dblclick)="openModalProduct()">
+
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col-2 .col-sm-4 .col-xl-4">
+              <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Ultimo Preço</mat-label>
+                    <input #nameProduct class="text-uppercase" matInput (dblclick)="openModalProduct()">
+                  </mat-form-field>
+              </div>
+          </div>
+          <div class="col-2 .col-sm-2 .col-xl-2">
+            <div class="form-group">
+              <mat-form-field appearance="fill">
+                <mat-label>Valor Médio de Compra</mat-label>
+                  <input #user class="text-uppercase" matInput (keyup)="getUserResponsible()" (dblclick)="openModalUser()">
+              </mat-form-field>
+          </div>
+      </div>
+          <div class="col-2 .col-sm-2 .col-xl-2">
+            <div class="form-group">
+              <mat-form-field appearance="fill">
+                <mat-label>Nº da Ordem de Compra</mat-label>
+                  <input #user class="text-uppercase" matInput (keyup)="getUserResponsible()" (dblclick)="openModalUser()">
+              </mat-form-field>
+          </div>
+      </div>
+
+           <div class= "col-2 .col-sm-3 .col-xl-3">
+              <div class="form-group">
+                <mat-form-field appearance="fill">
+                  <mat-label>Nº da Solicitação de Compra</mat-label>
+                  <input #nameUser class="text-uppercase" matInput (dblclick)="openModalUser()">
+                </mat-form-field>
+            </div>
+
+
+
+              </div>
+        </div>
+
+
+
+
+
+
+            <div class="row ">
+                <div class="col-4 .col-sm-4 .col-xl-4 d-inline-flex">
+                    <!-- botoes de  interação -->
+<div class="row ">
+  <div class="col-4 col-sm-4 col-xl-4 d-inline-flex ">
+      <button mat-raised-button color="primary" type="submit" >Salvar</button>
+      <button mat-raised-button color="primary" >Limpar</button>
+      <button mat-raised-button color="primary" (click)="excluir()">Excluir</button>
+      <button mat-raised-button color="primary" (click)="visualizar()" >Visualizar</button>
+      <button mat-raised-button color="primary" (click)="print()">Imprimir</button>
+      <button mat-raised-button color="primary" (click)="back()">Voltar</button>
+  </div>
+</div><br>
+                </div>
+                <div class="offset-5 col-2 .col-sm-3 .col-xl-3">
+                    <mat-checkbox color="primary"  [checked]="noReturn" (change)="getValueNoreturn($event.checked)">Gerar Relatório em PDF
+                    </mat-checkbox>
+                    <mat-checkbox color="primary"  [checked]="noReturn" (change)="getValueNoreturn($event.checked)">Exibir itens Inativos
+                    </mat-checkbox>
+                </div>
+
+            </div><br>
+
+
+        </form>
+
+
+
+    </div> <!-- ./container-fluid -->
+
+
+</div>
+<app-my-footer></app-my-footer>

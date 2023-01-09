@@ -8,7 +8,7 @@
         <!-- Linha fixa com os 3 componentes padrão que os valores veem do backend -->
         <div class="row">
 
-          <div class="col-6 col-sm-2 col-xl-2">
+          <div class="col-1 col-sm-1 col-xl-1">
               <div class="form-group">
                   <mat-form-field appearance="fill">
                     <mat-label>Código</mat-label>
@@ -16,27 +16,56 @@
                   </mat-form-field>
               </div>
           </div>
+          <div class="col-1 col-sm-1 col-xl-1">
+            <div class="form-group">
+                <mat-form-field appearance="fill">
+                  <mat-label>Solicitante</mat-label>
+                    <input #codeAtt matInput class="text-uppercase" formControlName="code" >
+                </mat-form-field>
+            </div>
+        </div>
           <div class="col-3 col-sm-3 col-xl-3">
             <div class="form-group">
                 <mat-form-field appearance="fill">
-                  <mat-label>Protocolo</mat-label>
+                  <mat-label></mat-label>
                     <input #protocol class="text-uppercase" matInput formControlName="protocol">
                 </mat-form-field>
             </div>
         </div>
 
-        <fieldset class="border p-2 col-6">
-          <legend class="w-auto">Status</legend>
-          <div class="row">
-            <mat-radio-group aria-label="Select an option" (change)="getValueRadioGroupStatus($event)" >
-              <mat-radio-button [checked]="radioStatus === 0 ? true : false">Pendente  &nbsp;</mat-radio-button>
-              <mat-radio-button [checked]="radioStatus === 1 ? true : false" value="1">Em Andamento  &nbsp;</mat-radio-button>
-              <mat-radio-button [checked]="radioStatus === 2 ? true : false" value="2">Finalizado</mat-radio-button>
-            </mat-radio-group>
+  <fieldset class="border p-2 col-6">
+                <div class="row">
+                <div class="col-3 .col-sm-2 .col-xl-3">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Data da Solicitação</mat-label>
+                            <input #dateinitial matInput [matDatepicker]="pickerx48">
+                            <mat-datepicker-toggle matSuffix [for]="pickerx48"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerx48></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
 
-          </div>
-
-      </fieldset>
+                <div class="col-3 .col-sm-2 .col-xl-3">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Data Conclusão</mat-label>
+                            <input #datefinal matInput [matDatepicker]="pickerx49">
+                            <mat-datepicker-toggle matSuffix [for]="pickerx49"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerx49></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+              </div>
+              </fieldset>
+              <div class="col-3 col-sm-3 col-xl-3">
+                <div class="form-group">
+                    <mat-form-field appearance="fill">
+                      <mat-label>*Nome do Produto</mat-label>
+                        <input #protocol class="text-uppercase" matInput formControlName="protocol">
+                    </mat-form-field>
+                </div>
+            </div>
       </div>
 
       <!-- Aqui começa o agrupamento das tabs -->
@@ -44,498 +73,123 @@
 
         <!-- Inicio da aba Solicitação -->
         <mat-tab label="Solicitaçao">
-
           <div class="row">
-
+            <!-- <div class="col- .col-sm-5 .col-xl-5 d-inline-flex"> -->
             <fieldset class="border p-2 col-6">
+              <div class="col-6 .col-sm-6 .col-xl-6 d-inline-flex">
+              <div class="form-group">
+               <label for="story">&nbsp; Embalagem Primária &nbsp;</label><br>
+                <textarea id="story" name="story" rows="05" cols="125" formControlName="note"> </textarea>
+              </div>
+              </div>
+            </fieldset>
+            <fieldset class="border p-2 col-6">
+              <div class="col-6 .col-sm-6 .col-xl-6 d-inline-flex">
+              <div class="form-group">
+               <label for="story">&nbsp; Embalagem Secundária &nbsp;</label><br>
+                <textarea id="story" name="story" rows="05" cols="125" formControlName="note"> </textarea>
+              </div>
+            </div>
+            </fieldset>
+            <fieldset class="border p-2 col-12">
 
-                <div class="row">
-                  <legend class="w-auto">Classificação</legend>
-                  <mat-radio-group aria-label="Select an option" (change)="getValueRadioGroupClassification($event)">
-                    <mat-radio-button  [checked]="radioClassification === 0 ? true : false" value="0">Qualidade e Outros &nbsp;&nbsp; </mat-radio-button>
-                    <mat-radio-button  [checked]="radioClassification === 1 ? true : false" value="1">Devoluções e Refaturamento &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button  [checked]="radioClassification === 2 ? true : false" value="2">Ocorrência &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button  [checked]="radioClassification === 3 ? true : false" value="3">Terceiros &nbsp;</mat-radio-button>
-                    <mat-radio-button  [checked]="radioClassification === 4 ? true : false" value="4">FFO &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button  [checked]="radioClassification === 5 ? true : false" value="5">Informativo &nbsp;</mat-radio-button>
-                    <mat-radio-button  [checked]="radioClassification === 6 ? true : false" value="6">Exportação &nbsp; </mat-radio-button>
-                  </mat-radio-group>
-
-                </div>
+              <div class="form-group">
+               <label for="story">&nbsp; Conceito(* marca,posicionamento,food service,Gondola,ME) &nbsp;</label><br>
+                <textarea id="story" name="story" rows="05" cols="200" formControlName="note"> </textarea>
+              </div>
 
             </fieldset>
-
+            <fieldset class="border p-2 col-6">
+              <div class="col-6 .col-sm-6 .col-xl-6 d-inline-flex">
+              <div class="form-group">
+               <label for="story">&nbsp; Expectativa do Solicitante &nbsp;</label><br>
+                <textarea id="story" name="story" rows="05" cols="125" formControlName="note"> </textarea>
+              </div>
+              </div>
+            </fieldset>
+            <fieldset class="border p-2 col-6">
+              <div class="col-6 .col-sm-6 .col-xl-6 d-inline-flex">
+              <div class="form-group">
+               <label for="story">&nbsp; Observação &nbsp;</label><br>
+                <textarea id="story" name="story" rows="05" cols="125" formControlName="note"> </textarea>
+              </div>
+            </div>
+            </fieldset>
+          <!-- </div> -->
         </div><br>
-
-<div class="row">
-<div class="col-2 col-sm-2 col-xl-2">
-<div class="form-group">
-    <mat-form-field appearance="fill"> <!-- preencimento automatico de acordo com o input de codigo logo acima. Se o input estiver vazio captura o usuário logado senao devolve de acordo com o resultado da consulta do backend-->
-      <mat-label>Responsavel pela abertura do Atendimento</mat-label>
-        <input #codeResposibleOpenAtt class="text-uppercase" matInput formControlName="userCreator">
-    </mat-form-field>
-</div>
-</div>
-<div class="col-3 col-sm-4 col-xl-4">
-<div class="form-group">
-    <mat-form-field appearance="fill">
-        <input #nameResposibleOpenAtt class="text-uppercase" matInput  [value]="nameResAtt">
-    </mat-form-field>
-</div>
-</div>
-</div>
         <div class="row">
-          <div class="col-3 col-sm-2 col-xl-2">
-            <div class="form-group">
-                <mat-form-field appearance="fill" >
-                    <mat-label>Data do Inicio do Atendimento</mat-label>
-                    <input  matInput [matDatepicker]="pickerSecond" formControlName="dateCreation"   [formControl]="dateCreation">
-                    <mat-datepicker-toggle matSuffix [for]="pickerSecond"></mat-datepicker-toggle>
-                    <mat-datepicker #pickerSecond></mat-datepicker>
-                </mat-form-field>
+        <fieldset class="border p-2 col-8">
+          <app-my-table
+          [displayedColumns]="displayedColumnsVr"
+          [dataSource]="dataSourceVr"
+          [displayHeaderColumns]="displayHeaderColumnsVr"
+          [totalElements] = "totalElementsVr"
+          [loading]="loadingVr"
+          (getSort)=getMatSortVr($event)
+          (getPaginator) = getMatPaginatorVr($event)
+          (searchAll)="getSearchAllVr($event)"
+          (routerEdit)="getRouterEditVr($event)"
+          (routerDelete)="getRouterDeleteVr($event)"
+          (routerCreate)="getRouterCreateVr($event)"
+          >
+          </app-my-table>
+        </fieldset>
+        <div class="col-4 col-sm-4 col-xl-4">
+          <button mat-raised-button color="primary" type="submit" >Anexar</button>
+          <button mat-raised-button color="primary" >Remover</button>
+             </div>
             </div>
-        </div>
-        <div class="col-6 col-sm-2 col-xl-2">
-          <div class="form-group">
-             <mat-form-field appearance="fill">
-                 <mat-label>Hora Inicial</mat-label>
-                 <input matInput type="time"  [value]="dateCreationTime">
-
-             </mat-form-field>
-          </div>
-      </div>
-
-        <div class="col-3 col-sm-2 col-xl-2">
-          <div class="form-group">
-              <mat-form-field appearance="fill" >
-                  <mat-label>Data do Término do Atendimento</mat-label>
-                  <input  matInput [matDatepicker]="pickerQuart" formControlName="closingDate"  [formControl]="closingDate">
-                  <mat-datepicker-toggle matSuffix [for]="pickerQuart"></mat-datepicker-toggle>
-                  <mat-datepicker #pickerQuart></mat-datepicker>
-              </mat-form-field>
-          </div>
-      </div>
-      <div class="col-6 col-sm-2 col-xl-2">
-        <div class="form-group">
-           <mat-form-field appearance="fill">
-               <mat-label>Hora Final</mat-label>
-               <input matInput type="time" [value]="closingDateTime" >
-             </mat-form-field>
-        </div>
-    </div>
-        </div>
-
-        <fieldset class="border p-2 col-6">
-          <legend class="w-auto">Tipo de Contato</legend>
-          <div class="row">
-            <mat-radio-group aria-label="Select an option" formControlName="typeContact">
-              <mat-radio-button  [checked]="radioTypeContact === 1 ? true : false" value="1"> Interno  &nbsp;</mat-radio-button>
-              <mat-radio-button [checked]="radioTypeContact === 2 ? true : false" value="2">Externo  </mat-radio-button>
-
-            </mat-radio-group>
-          </div>
-
-      </fieldset>
-
-        <div class="row">
-            <div class="col-3 col-sm-3 col-xl-3">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                      <mat-label>Responsavel pelo Contato</mat-label>
-                        <input  class="text-uppercase" matInput formControlName="contactPerson">
-                    </mat-form-field>
-                </div>
-            </div>
-
-            <div class="col-3 col-sm-4 col-xl-4">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                      <mat-label>Responsável pelo Cliente</mat-label>
-                        <input  class="text-uppercase" matInput formControlName="clientResponsible">
-                    </mat-form-field>
-                </div>
-            </div>
-
-
-            <div class="col-3 col-sm-5 col-xl-5">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                      <mat-label>Outro Telefone do Cliente</mat-label>
-                        <input  class="text-uppercase" matInput formControlName="otherClientPhone">
-                    </mat-form-field>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-3 col-sm-2 col-xl-2">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                      <mat-label>Responsável pelo Atendimento</mat-label>
-                        <input #codeResposibleAtt class="text-uppercase" matInput formControlName="responsibleForTheAttendance" (keyup)="getResponsibleAtt()">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="col-3 col-sm-4 col-xl-4">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-
-                      <input #nameResposibleAtt class="text-uppercase" matInput>
-                  </mat-form-field>
-              </div>
-          </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-3 col-sm-2 col-xl-2">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                      <mat-label>Canal de Atendimento</mat-label>
-                        <input #codeCareChannel class="text-uppercase" matInput formControlName="careChannel" (keyup)="getCareChannel()">
-                    </mat-form-field>
-                </div>
-            </div>
-
-            <div class="col-3 col-sm-4 col-xl-4">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-
-                        <input #nameCareChannel class="text-uppercase" matInput>
-                    </mat-form-field>
-                </div>
-            </div>
-
-            <div class="col-3 col-sm-2 col-xl-2">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                      <mat-label>Setor Responsável</mat-label>
-                        <input #codeSector class="text-uppercase" matInput formControlName="responsibleSector" (keyup)="getSectorResponsible()">
-                    </mat-form-field>
-                </div>
-            </div>
-
-            <div class="col-3 col-sm-4 col-xl-4">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-
-                        <input #nameSector class="text-uppercase" matInput >
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="col-6 col-sm-3 col-xl-3">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-                    <mat-label>NF-e Devolução</mat-label>
-                      <input  matInput class="text-uppercase" formControlName="nfeDevolution">
-                  </mat-form-field>
-              </div>
-          </div>
-          <div class="col-6 col-sm-3 col-xl-3">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-                    <mat-label>Série</mat-label>
-                      <input  matInput class="text-uppercase" formControlName="nfeSeriesDevolution">
-                  </mat-form-field>
-              </div>
-          </div>
-          <div class="col-4 col-sm-4 col-xl-4">
-            <div class="form-group">
-                <mat-form-field appearance="fill">
-                  <mat-label> Cel.Envio de Protocolo</mat-label>
-                    <input  class="text-uppercase" matInput formControlName="cellPhoneSms">
-                </mat-form-field>
-            </div>
-        </div>
-              <div class="col-3 col-sm-2 col-xl-2">
-                  <div class="form-group">
-                      <mat-form-field appearance="fill">
-                        <mat-label>Nome Envio Protocolo</mat-label>
-                          <input  class="text-uppercase" matInput formControlName="nameSms">
-                      </mat-form-field>
-                  </div>
-              </div>
-        </div>
-        <div class="row">
-
-          <div class="col-3 col-sm-2 col-xl-2">
-            <div class="form-group">
-                <mat-form-field appearance="fill" >
-                    <mat-label>Data Inicial do Contato</mat-label>
-                    <input matInput [matDatepicker]="pickerPrimary" formControlName="clientContactDate"  [formControl]="clientContactDate">
-                    <mat-datepicker-toggle matSuffix [for]="pickerPrimary"></mat-datepicker-toggle>
-                    <mat-datepicker #pickerPrimary></mat-datepicker>
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="col-6 col-sm-2 col-xl-2">
-          <div class="form-group">
-             <mat-form-field appearance="fill">
-                 <mat-label>Hora Inicial do Contato</mat-label>
-                 <input matInput type="time" [value]="clientContactDateTime" >
-
-             </mat-form-field>
-          </div>
-      </div>
-
-        <div class="col-3 col-sm-2 col-xl-2">
-          <div class="form-group">
-              <mat-form-field appearance="fill" >
-                  <mat-label>Data Retorno para Cliente</mat-label>
-                  <input  matInput [matDatepicker]="pickerTer" formControlName="clientReturnDate"  [formControl]="clientReturnDate">
-                  <mat-datepicker-toggle matSuffix [for]="pickerTer"></mat-datepicker-toggle>
-                  <mat-datepicker #pickerTer></mat-datepicker>
-              </mat-form-field>
-          </div>
-      </div>
-      <div class="col-6 col-sm-2 col-xl-2">
-        <div class="form-group">
-           <mat-form-field appearance="fill">
-               <mat-label>Hora Retorno para Cliente</mat-label>
-               <input matInput type="time" [value]="clientReturnDateTime">
-
-           </mat-form-field>
-        </div>
-    </div>
-        </div>
+        <!-- botoes de  interação -->
 
         </mat-tab>
         <!-- Fim da aba solicitação / Inicio aba Marketing -->
         <mat-tab label="Marketing">
           <div class="row">
-            <div class="col-3 col-sm-2 col-xl-2">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-                    <mat-label>ERP</mat-label>
-                      <input #erpClient class="text-uppercase"  matInput (dblclick)="openModalClient()" (keyup)="getClient()">
-                  </mat-form-field>
-              </div>
-          </div>
-          <div class="col-3 col-sm-2 col-xl-2">
-            <div class="form-group">
-                <mat-form-field appearance="fill">
-                  <mat-label>Cliente</mat-label>
-                    <input #codeClient class="text-uppercase" formControlName="client" matInput (dblclick)="openModalClient()" (keyup)="getClient()">
-                </mat-form-field>
-            </div>
-        </div>
-          <div class="col-3 col-sm-4 col-xl-4">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-                    <input #nameClient class="text-uppercase" matInput (dblclick)="openModalClient()" (keyup)="getClient()">
-                  </mat-form-field>
-              </div>
-          </div>
-            <div class="col-3 col-sm-2 col-xl-2">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-                      <mat-label>Data Criação</mat-label>
-                      <input  matInput [matDatepicker]="pickerCinc">
-                      <mat-datepicker-toggle matSuffix [for]="pickerCinc"></mat-datepicker-toggle>
-                      <mat-datepicker #pickerCinc></mat-datepicker>
-                  </mat-form-field>
-              </div>
-          </div>
-          </div>
-          <div class="row">
-            <div class="col-2 col-sm-2 col-xl-2">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-                    <mat-label>Representante</mat-label>
-                      <input #codeRepresentative class="text-uppercase" formControlName="representative" matInput (keyup)="getRepresentative()">
-                  </mat-form-field>
-              </div>
-          </div>
-            <div class="col-4 col-sm-3 col-xl-3">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-               <input #nameRepresentative class="text-uppercase" matInput  >
-                  </mat-form-field>
-              </div>
-          </div>
-          <div class="col-2 col-sm-2 col-xl-2">
-            <div class="form-group">
-                <mat-form-field appearance="fill">
-                    <mat-label>Freq.Compra Mes</mat-label>
-                    <input  matInput class="text-uppercase" >
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="col-6 col-sm-3 col-xl-3">
-            <div class="form-group">
-                <mat-form-field appearance="fill">
-                    <mat-label>Média de Compra</mat-label>
-                    <input  #averagePurchaseValueClient matInput class="text-uppercase" >
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="col-2 col-sm-2 col-xl-2">
-          <div class="form-group">
-              <mat-form-field appearance="fill">
-                    <mat-label>Quantidade de Reclamações</mat-label>
-                  <input #quantityPurchasesClient class="text-uppercase" matInput >
-              </mat-form-field>
-          </div>
+
+            <div class="row">
+              <app-my-table
+              [displayedColumns]="displayedColumnsPr"
+              [dataSource]="dataSourcePr"
+              [displayHeaderColumns]="displayHeaderColumnsPr"
+              [totalElements] = "totalElementsPr"
+              [showButtons]="false"
+              [showButtonsConfirm]="true"
+              [loading]="loadingPr"
+              (getSort)=getMatSortPr($event)
+              (getPaginator) = getMatPaginatorPr($event)
+              (searchAll)="getSearchAllPr($event)"
+              (routerEdit)="getRouterEditPr($event)"
+              (routerDelete)="getRouterDeletePr($event)"
+              (routerCreate)="getRouterCreatePr($event)"
+              >
+              </app-my-table>
+    <!-- botoes de  interação -->
+    <div class="row ">
+      <div class="col-1 col-sm-4 col-xl-4 d-inline-flex ">
+          <button mat-raised-button color="primary">Adicionar</button>
+
+          <button mat-raised-button color="primary">Alterar</button>
+
+          <button mat-raised-button color="primary">Remover</button>
+
+          <button mat-raised-button color="primary"(click)="testemodal()">Visualizar</button>
       </div>
-      <div class="col-2 col-sm-2 col-xl-2">
-        <div class="form-group">
-            <mat-form-field appearance="fill">
-                    <mat-label>Supervisor do Representante</mat-label>
-                <input #codeRepresentativeSupervisor class="text-uppercase" formControlName="supervisorRepresentative" matInput>
-            </mat-form-field>
-        </div>
-    </div>
+    </div><br>
+          </div><br>
 
-      <div class="col-3 col-sm-4 col-xl-4">
-        <div class="form-group">
-            <mat-form-field appearance="fill">
-                <input #nameRepresentativeSupervisor class="text-uppercase" matInput  >
-            </mat-form-field>
-        </div>
-    </div>
-
-    <div class="col-2 col-sm-2 col-xl-2">
-      <div class="form-group">
-          <mat-form-field appearance="fill">
-                  <mat-label>Gerente do Sup.do Repesentante</mat-label>
-              <input #codeRepresentativeSupervisorManager class="text-uppercase" formControlName="managerRepresentative" matInput>
-          </mat-form-field>
-      </div>
-  </div>
-
-    <div class="col-3 col-sm-4 col-xl-4">
-        <div class="form-group">
-            <mat-form-field appearance="fill">
-                <input #nameRepresentativeSupervisorManager class="text-uppercase" matInput >
-            </mat-form-field>
-        </div>
-    </div>
-
-       <div class="col-3 col-sm-2 col-xl-2">
-            <div class="form-group">
-                <mat-form-field appearance="fill">
-                    <mat-label>Telefone</mat-label>
-                    <input #telephoneClient class="text-uppercase" matInput >
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="col-3 col-sm-2 col-xl-2">
-          <div class="form-group">
-              <mat-form-field appearance="fill">
-                    <mat-label>E-mail</mat-label>
-                  <input #emailClient class="text-uppercase" matInput  >
-              </mat-form-field>
           </div>
-      </div>
-
-
-              <div class="col-3 col-sm-2 col-xl-2">
-                  <div class="form-group">
-                      <mat-form-field appearance="fill">
-                    <mat-label>CROSS/CD</mat-label>
-                          <input #codeCrossCd class="text-uppercase" formControlName="crossCd" matInput placeholder="cross/cd" (keyup)="getCrossCd()" >
-                      </mat-form-field>
-                  </div>
-              </div>
-              <div class="col-3 col-sm-3 col-xl-3">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-
-                        <input #nameCrossCd class="text-uppercase" matInput >
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="col-3 col-sm-2 col-xl-2">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-                    <mat-label>CNPJ</mat-label>
-                      <input #cpfCnpjClient class="text-uppercase" matInput >
-                  </mat-form-field>
-              </div>
-          </div>
-        </div>
-        <!-- CAIXA DO ENDEREÇO -->
-
-        <div class="row">
           <fieldset class="border p-2 col-12">
-              <legend class="w-auto">Endereço</legend>
-              <div class="row">
 
-                <div class="col-3 col-sm-4 col-xl-4">
-               <div class="form-group">
-                    <mat-form-field appearance="fill">
-                    <mat-label>Logradouro</mat-label>
-                        <input #addressClient class="text-uppercase" matInput >
-                    </mat-form-field>
-                </div>
-            </div>
-
-
-               <div class="col-3 col-sm-2 col-xl-2">
-                    <div class="form-group">
-                        <mat-form-field appearance="fill">
-                    <mat-label>Número</mat-label>
-                            <input #houseNumberClient class="text-uppercase" matInput >
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="col-3 col-sm-2 col-xl-2">
-                  <div class="form-group">
-                      <mat-form-field appearance="fill">
-                    <mat-label>Complemento</mat-label>
-                          <input #complementClient class="text-uppercase" matInput >
-                      </mat-form-field>
-                  </div>
-              </div>
-
-            </div>
-              <div class="row">
-                <div class="col-3 col-sm-2 col-xl-2">
-                  <div class="form-group">
-                      <mat-form-field appearance="fill">
-                    <mat-label>Bairro</mat-label>
-                          <input #neighborhoodClient class="text-uppercase" matInput >
-                      </mat-form-field>
-                  </div>
-              </div>
-              <div class="col-3 col-sm-2 col-xl-2">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                    <mat-label>Cidade</mat-label>
-                        <input #cityClient class="text-uppercase" matInput >
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="col-3 col-sm-2 col-xl-2">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-                    <mat-label>CEP</mat-label>
-                      <input #zipCodeClient class="text-uppercase" matInput >
-                  </mat-form-field>
-              </div>
-          </div>
-            <div class="col-3 col-sm-2 col-xl-2">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-                    <mat-label>Estado</mat-label>
-                      <input #stateClient class="text-uppercase" matInput >
-                  </mat-form-field>
-              </div>
-          </div>
-          <div class="col-3 col-sm-2 col-xl-2">
             <div class="form-group">
-                <mat-form-field appearance="fill">
-                  <mat-label>País</mat-label>
-                    <input #nationClient class="text-uppercase" matInput >
-                </mat-form-field>
+             <label for="story">&nbsp; Expectativa Mensal de volume de Vendas &nbsp;</label><br>
+              <textarea id="story" name="story" rows="01" cols="250" formControlName="note"> </textarea>
             </div>
-        </div>
-              </div>
-
+            <div class="form-group">
+              <label for="story">&nbsp; Observação &nbsp;</label><br>
+               <textarea id="story" name="story" rows="05" cols="250" formControlName="note"> </textarea>
+             </div>
           </fieldset>
-          </div>
+
         </mat-tab>
         <!-- Fim da aba Marketing -->
 
@@ -543,36 +197,149 @@
         <mat-tab label="Industrial">
 
         <div class="row">
-          <app-my-table
-          [displayedColumns]="displayedColumnsPr"
-          [dataSource]="dataSourcePr"
-          [displayHeaderColumns]="displayHeaderColumnsPr"
-          [totalElements] = "totalElementsPr"
-          [showButtons]="false"
-          [showButtonsConfirm]="true"
-          [loading]="loadingPr"
-          (getSort)=getMatSortPr($event)
-          (getPaginator) = getMatPaginatorPr($event)
-          (searchAll)="getSearchAllPr($event)"
-          (routerEdit)="getRouterEditPr($event)"
-          (routerDelete)="getRouterDeletePr($event)"
-          (routerCreate)="getRouterCreatePr($event)"
-          >
-          </app-my-table>
-<!-- botoes de  interação -->
-<div class="row ">
-  <div class="col-1 col-sm-4 col-xl-4 d-inline-flex ">
-      <button mat-raised-button color="primary">Adicionar</button>
+          <fieldset class="border p-2 col-6">
+            <div class="col-6 .col-sm-6 .col-xl-6 d-inline-flex">
+            <div class="form-group">
+             <label for="story">&nbsp; Formulação &nbsp;</label><br>
+              <textarea id="story" name="story" rows="05" cols="125" formControlName="note"> </textarea>
+            </div>
+            </div>
+          </fieldset>
+          <fieldset class="border p-2 col-6">
+            <div class="col-6 .col-sm-6 .col-xl-6 d-inline-flex">
+            <div class="form-group">
+             <label for="story">&nbsp; Observações &nbsp;</label><br>
+              <textarea id="story" name="story" rows="05" cols="125" formControlName="note"> </textarea>
+            </div>
+          </div>
+          </fieldset>
 
-      <button mat-raised-button color="primary">Alterar</button>
-
-      <button mat-raised-button color="primary">Remover</button>
-
-      <button mat-raised-button color="primary"(click)="testemodal()">Visualizar</button>
-  </div>
-</div><br>
       </div><br>
+      <div class="row">
+        <fieldset class="border p-2 col-12">
+          <div class="row">
+          <div class="col-2 .col-sm-2 .col-xl-3">
+              <div class="form-group">
+                  <mat-form-field appearance="fill">
+                      <mat-label>Protótipo</mat-label>
+                      <input #dateinitial matInput [matDatepicker]="pickerx51">
+                      <mat-datepicker-toggle matSuffix [for]="pickerx51"></mat-datepicker-toggle>
+                      <mat-datepicker #pickerx51></mat-datepicker>
+                  </mat-form-field>
+              </div>
+          </div>
+          <div class="col-1 col-sm-1 col-xl-2">
+            <div class="form-group">
+                <mat-form-field appearance="fill">
+                  <mat-label>*validade</mat-label>
+                    <input #codeAtt matInput class="text-uppercase" formControlName="code" >
+                </mat-form-field>
+              </div>
+          </div>
+          <div class="col-1 col-sm-1 col-xl-2">
+            <mat-form-field appearance="fill">
+            <div class="form-group">
+            <mat-select disableRipple>
+              <mat-option value="1">Selecione</mat-option>
+              <mat-option value="2">Dias</mat-option>
+              <mat-option value="3">xxx</mat-option>
+              <mat-option value="4">xxxx</mat-option>
+            </mat-select>
+         </div>
+        </mat-form-field>
+        </div>
 
+
+          <div class="col-2 .col-sm-2 .col-xl-3">
+              <div class="form-group">
+                  <mat-form-field appearance="fill">
+                      <mat-label>*Lançamento</mat-label>
+                      <input #datefinal matInput [matDatepicker]="pickerx50">
+                      <mat-datepicker-toggle matSuffix [for]="pickerx50"></mat-datepicker-toggle>
+                      <mat-datepicker #pickerx50></mat-datepicker>
+                  </mat-form-field>
+              </div>
+          </div>
+          <div class="col-2 .col-sm-3 .col-xl-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Tipo</mat-label>
+              <mat-select disableRipple>
+                <mat-option value="1">Selecione</mat-option>
+                <mat-option value="2">Industrializado</mat-option>
+                <mat-option value="3">xxx</mat-option>
+                <mat-option value="4">xxxx</mat-option>
+                <mat-option value="5">xxxxx </mat-option>
+
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        </fieldset>
+
+    </div><br>
+      <div class="row">
+        <fieldset class="border p-2 col-6">
+          <div class="col-6 .col-sm-6 .col-xl-6 d-inline-flex">
+          <div class="form-group">
+           <label for="story">&nbsp; Processo de Produção &nbsp;</label><br>
+            <textarea id="story" name="story" rows="05" cols="125" formControlName="note"> </textarea>
+          </div>
+          </div>
+        </fieldset>
+        <fieldset class="border p-2 col-6">
+          <div class="col-6 .col-sm-6 .col-xl-6 d-inline-flex">
+          <div class="form-group">
+           <label for="story">&nbsp; Compra de Equipamento &nbsp;</label><br>
+            <textarea id="story" name="story" rows="05" cols="125" formControlName="note"> </textarea>
+          </div>
+        </div>
+        </fieldset>
+
+    </div><br>
+
+    <div class="row">
+      <div class="col-2 col-sm-1 col-xl-2">
+        <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>*P.Min.Emb.Primária</mat-label>
+                <input #codeAtt matInput class="text-uppercase" formControlName="code" >
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-2 col-sm-1 col-xl-2">
+      <div class="form-group">
+          <mat-form-field appearance="fill">
+            <mat-label>Invesetimento Embalagem</mat-label>
+              <input #codeAtt matInput class="text-uppercase" formControlName="code" >
+          </mat-form-field>
+      </div>
+  </div>
+  <div class="col-2 col-sm-1 col-xl-2">
+    <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Volume p/Investimento</mat-label>
+            <input #codeAtt matInput class="text-uppercase" formControlName="code" >
+        </mat-form-field>
+    </div>
+</div>
+<div class="col-2 col-sm-1 col-xl-2">
+  <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Cronoanálise</mat-label>
+          <input #codeAtt matInput class="text-uppercase" formControlName="code" >
+      </mat-form-field>
+  </div>
+</div>
+<div class="col-1 col-sm-1 col-xl-1">
+  <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Rendimento</mat-label>
+          <input #codeAtt matInput class="text-uppercase" formControlName="code" >
+      </mat-form-field>
+  </div>
+</div>
+
+    </div><br>
         </mat-tab>
         <!-- Fim da aba Industrial -->
 
@@ -595,46 +362,7 @@
           >
           </app-my-table>
 
-          <div class="row">
 
-              <div class="col-2 col-sm-2 col-xl-2">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                            <mat-label>Canal de envio de Mídia</mat-label>
-                        <input #nameComplaint class="text-uppercase" matInput>
-                    </mat-form-field>
-                </div>
-            </div>
-
-              <div class="col-3 col-sm-4 col-xl-4">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                            <mat-label></mat-label>
-                        <input #complaint class="text-uppercase" matInput  >
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="col-3 col-sm-2 col-xl-2">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-                      <mat-label>Data Final</mat-label>
-                      <input  matInput [matDatepicker]="pickerSeis">
-                      <mat-datepicker-toggle matSuffix [for]="pickerSeis"></mat-datepicker-toggle>
-                      <mat-datepicker #pickerSeis></mat-datepicker>
-                  </mat-form-field>
-              </div>
-          </div>
-          <div class="col-6 col-sm-2 col-xl-2">
-            <div class="form-group">
-               <mat-form-field appearance="fill">
-                   <mat-label>Hora Final do Contato</mat-label>
-                   <input matInput type="time" formControlName4="timeTerc" name="timeTerc" #timeQuar>
-
-               </mat-form-field>
-            </div>
-        </div>
-
-        </div>
           <!-- botoes de  interação -->
 <div class="row ">
   <div class="col-3 col-sm-4 col-xl-4 d-inline-flex ">
@@ -645,93 +373,67 @@
 
   </div>
 </div><br>
+<div class="row">
+  <fieldset class="border p-2 col-12">
+    <div class="col-6 .col-sm-6 .col-xl-6 d-inline-flex">
+    <div class="form-group">
+     <label for="story">&nbsp; Observações &nbsp;</label><br>
+      <textarea id="story" name="story" rows="05" cols="250" formControlName="note"> </textarea>
+    </div>
+  </div>
+  </fieldset>
+
+</div>
         </mat-tab>
         <!-- Fim da Aba Cotação  -->
 
 
          <!-- Inicio da Aba Controladoria  -->
          <mat-tab label="Controladoria">
-          <div class="row">
 
-            <div class="col-6 col-sm-2 col-xl-2">
-                <div class="form-group">
-                    <mat-form-field appearance="fill">
-                    <mat-label>Transportadora</mat-label>
-                        <input #codeShippingCompany matInput class="text-uppercase" formControlName="shippingCompany" (keyup)="getShippingCompany()" >
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="col-3 col-sm-3 col-xl-3">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-
-                      <input #nameShippingCompany class="text-uppercase" matInput >
-                  </mat-form-field>
-              </div>
-          </div>
-        </div>
         <div class="row">
-
-          <div class="col-6 col-sm-2 col-xl-2">
-              <div class="form-group">
-                  <mat-form-field appearance="fill">
-                  <mat-label>Motorista</mat-label>
-                      <input #codeDriver matInput class="text-uppercase" formControlName="driver" (keyup)="getDriver()">
-                  </mat-form-field>
-              </div>
-          </div>
-          <div class="col-3 col-sm-3 col-xl-3">
+          <div class="col-2 col-sm-1 col-xl-2">
             <div class="form-group">
                 <mat-form-field appearance="fill">
-
-                    <input #nameDriver class="text-uppercase" matInput >
+                  <mat-label>Pre Custo</mat-label>
+                    <input #codeAtt matInput class="text-uppercase" formControlName="code" >
                 </mat-form-field>
             </div>
         </div>
+        <div class="col-2 col-sm-1 col-xl-2">
+          <div class="form-group">
+              <mat-form-field appearance="fill">
+                <mat-label>NCM</mat-label>
+                  <input #codeAtt matInput class="text-uppercase" formControlName="code" >
+              </mat-form-field>
+          </div>
       </div>
+      <div class="col-2 col-sm-1 col-xl-2">
+        <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Markup-MTZ 1</mat-label>
+                <input #codeAtt matInput class="text-uppercase" formControlName="code" >
+            </mat-form-field>
+        </div>
+    </div>
+        </div>
           <div class="row">
             <fieldset class="border p-2 col-6">
-                <legend class="w-auto">Placa Veicular </legend>
-                <div class="row">
-                  <div class="row">
-                    <mat-radio-group aria-label="Select an option">
-                      <mat-radio-button value="1">Placa Brasil  &nbsp;</mat-radio-button>
-                      <mat-radio-button value="2">Placa Mercosul  &nbsp;</mat-radio-button>
+              <div class="col-6 .col-sm-6 .col-xl-6 d-inline-flex">
+              <div class="form-group">
+               <label for="story">&nbsp; Formulação &nbsp;</label><br>
+                <textarea id="story" name="story" rows="05" cols="250" formControlName="note"> </textarea>
+              </div>
+              </div>
+            </fieldset>
 
-                    </mat-radio-group>
 
-                  </div>
-                </div>
-          </fieldset>
+        </div><br>
 
-          <div class="col-3 col-sm-2 col-xl-2">
-            <div class="form-group">
-                <mat-form-field appearance="fill">
-                  <mat-label>Placa 1</mat-label>
-                    <input  class="text-uppercase" matInput formControlName="plate" >
-                </mat-form-field>
-            </div>
-        </div>
-          <div class="col-3 col-sm-2 col-xl-2">
-            <div class="form-group">
-                <mat-form-field appearance="fill">
-                  <mat-label>Placa 2</mat-label>
-                    <input class="text-uppercase" matInput formControlName="plate2" >
-                </mat-form-field>
-            </div>
-        </div>
-            </div>
 
-          <!-- botoes de  interação -->
-<div class="row ">
-  <div class="col-3 col-sm-4 col-xl-4 d-inline-flex ">
-      <button mat-raised-button color="primary">Salvar</button>
-      <button mat-raised-button color="primary">Enviar</button>
-      <button mat-raised-button color="primary">Finalizar</button>
-      <button mat-raised-button color="primary">Imprimir</button>
-      <button mat-raised-button color="primary">Voltar</button>
-  </div>
-</div><br>
+
+
+
          </mat-tab>
          <!-- Fim da Aba Controladoria  -->
 
@@ -812,20 +514,7 @@
 
         <div class="row">
 
-          <app-my-table
-          [displayedColumns]="displayedColumnsAn"
-          [dataSource]="dataSourceAn"
-          [displayHeaderColumns]="displayHeaderColumnsAn"
-          [totalElements] = "totalElementsAn"
-          [loading]="loadingAn"
-          (getSort)=getMatSortAn($event)
-          (getPaginator) = getMatPaginatorAn($event)
-          (searchAll)="getSearchAllAn($event)"
-          (routerEdit)="getRouterEditAn($event)"
-          (routerDelete)="getRouterDeleteAn($event)"
-          (routerCreate)="getRouterCreateAn($event)"
-          >
-          </app-my-table>
+         
 <!-- botoes de  interação -->
 <div class="row ">
   <div class="col-3 col-sm-4 col-xl-4 d-inline-flex ">

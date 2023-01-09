@@ -1,31 +1,30 @@
-import { ProdListModComponent } from './../../../_shared/prod-list-mod/prod-list-mod.component';
-import { UserSiaListModComponent } from './../../../_shared/user-sia-list-mod/user-sia-list-mod.component';
-import { SetorListModComponent } from './../../../_shared/setor-list-mod/setor-list-mod.component';
-import { MotivoListModComponent } from './../../../_shared/motivo-list-mod/motivo-list-mod.component';
-import { ClientListModComponent } from './../../../_shared/client-list-mod/client-list-mod.component';
-import { UserSiaService } from './../../userSia/user-sia.service';
-import { ClientService } from './../../client/client.service';
 import { Sac } from './../../sac/Sac.model';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
-import { MatSort } from '@angular/material/sort';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { SacService } from '../../sac/sac.service';
-import { ProductService } from '../../product/product.service';
-import { ReasonComplaintService } from '../../reasonComplaint/reason-complaint.service';
-import { SectorService } from '../../sector/sector.service';
+import { ClientService } from 'src/app/pages/client/client.service';
+import { ProductService } from './../../product/product.service';
+import { UserSiaService } from 'src/app/pages/userSia/user-sia.service';
+import { ClientListModComponent } from 'src/app/_shared/client-list-mod/client-list-mod.component';
+import { MotivoListModComponent } from 'src/app/_shared/motivo-list-mod/motivo-list-mod.component';
+import { SetorListModComponent } from 'src/app/_shared/setor-list-mod/setor-list-mod.component';
+import { UserSiaListModComponent } from 'src/app/_shared/user-sia-list-mod/user-sia-list-mod.component';
+import { ProdListModComponent } from 'src/app/_shared/prod-list-mod/prod-list-mod.component';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { SectorService } from '../../sector/sector.service';
+import { ReasonComplaintService } from '../../reasonComplaint/reason-complaint.service';
+import { SacService } from '../../sac/sac.service';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-cadastro-novos-produtos',
-  templateUrl: './cadastro-novos-produtos.component.html',
-  styleUrls: ['./cadastro-novos-produtos.component.scss']
+  selector: 'app-controlede-estoque-ti',
+  templateUrl: './controlede-estoque-ti.component.html',
+  styleUrls: ['./controlede-estoque-ti.component.scss']
 })
-export class CadastroNovosProdutosComponent implements OnInit {
-
-  nameContent: string = 'Cadastro de Solicitação de Novos Produtos';//my-toolbar
+export class ControledeEstoqueTiComponent {
+  nameContent: string = 'Cadastro de Estoque de TI';//my-toolbar
 
   sac$!: Observable<Sac[]>;
   inactive = false;
@@ -543,20 +542,17 @@ export class CadastroNovosProdutosComponent implements OnInit {
 send() {
 
 }
+excluir() {
 
+}
 finalize() {
 
 }
-visualizar() {
-
+visualizar(){
+  
 }
+
 print() {
-
-}
-limpar() {
-
-}
-remover() {
 
 }
 
@@ -590,3 +586,5 @@ back() {
         this.matDialog.open (ProdListModComponent);
         }
 }
+
+

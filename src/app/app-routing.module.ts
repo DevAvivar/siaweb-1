@@ -143,6 +143,12 @@ const routes: Routes = [
    },
 
    {
+    path: 'informatica/estoqueti',
+    loadChildren: () => import("./pages/informatica/estoqueti/controlede-estoque-ti.module").then((m) => m.ControledeEstoqueTiModule),
+    canActivate: [AuthGuardService],
+    // canActivateChild: [PermissionADMINGuardService]
+   },
+   {
     path: 'manutencao/emprestimo',
     loadChildren: () => import("./pages/manutencao/emprestimo/emprestimo-ferramentas.module").then((m) => m.EmprestimoFerramentasModule),
     canActivate: [AuthGuardService],
