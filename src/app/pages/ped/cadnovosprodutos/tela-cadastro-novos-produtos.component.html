@@ -754,7 +754,7 @@ x
 
         <fieldset class="border p-2 col-12">
           <div class="row">
-            
+
           <div class="col-2 col-sm-1 col-xl-2">
             <div class="form-group">
                 <mat-form-field appearance="fill">
@@ -776,6 +776,35 @@ x
               <div class="form-group">
                   <mat-form-field appearance="fill">
                     <mat-label>Arte Embalagem</mat-label>
+                      <input #codeAtt matInput class="text-uppercase" formControlName="code" >
+                  </mat-form-field>
+              </div>
+
+          </div>
+
+          <div class="col-2 col-sm-3 col-xl-2 d-inline-flex ">
+            <button mat-raised-button color="primary">Alterar</button>
+        </div>
+
+          </div>
+        </fieldset>
+        <fieldset class="border p-2 col-12">
+          <div class="row">
+            <div class="col-2 .col-sm-2 .col-xl-3">
+              <div class="form-group">
+                  <mat-form-field appearance="fill">
+                      <mat-label>Lançamento</mat-label>
+                      <input #dateinitial matInput [matDatepicker]="pickerx56">
+                      <mat-datepicker-toggle matSuffix [for]="pickerx56"></mat-datepicker-toggle>
+                      <mat-datepicker #pickerx56></mat-datepicker>
+                  </mat-form-field>
+              </div>
+          </div>
+
+            <div class="col-3 col-sm-3 col-xl-3">
+              <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Contrato</mat-label>
                       <input #codeAtt matInput class="text-uppercase" formControlName="code" >
                   </mat-form-field>
               </div>
